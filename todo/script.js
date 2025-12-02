@@ -1,20 +1,38 @@
+// Simple To-Do List logic with localStorage
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
-function addTask() {
-  if (inputBox.value === "") {
-    alert("You must write something!");
-  } else {
-    let li = document.createElement("li");
-    li.innerHTML = inputBox.value;
-    listContainer.appendChild(li);
-    let span = document.createElement("span");
-    span.innerHTML = "\u00d7";
-    li.appendChild(span);
-  }
-    inputBox.value = "";  
-    saveData();
+
+function saveData() {
+  localStorage.setItem("todo-data", listContainer.innerHTML);
 }
-listContainer.addEventListener("click", function(e) {
+
+function showTasks() {
+  const data = localStorage.getItem("todo-data");
+  if (data) {
+    listContainer.innerHTML = data;
+  }
+}
+showTasks();
+
+function addTask() {
+  const text = inputBox.value.trim();
+  if (!text) {
+    alert("Please write something");
+    return;
+  }
+  const li = document.createElement("li");
+  li.textContent = text;
+  listContainer.appendChild(li);
+
+  const span = document.createElement("span");
+  span.textContent = "\u00d7";
+  li.appendChild(span);
+
+  inputBox.value = "";
+  saveData();
+}
+
+listContainer.addEventListener("click", function (e) {
   if (e.target.tagName === "LI") {
     e.target.classList.toggle("checked");
     saveData();
@@ -22,12 +40,4 @@ listContainer.addEventListener("click", function(e) {
     e.target.parentElement.remove();
     saveData();
   }
-}, false);
-
-function saveData() {
-  localStorage.setItem("data", listContainer.innerHTML);
-}
-function showTask() {
-  listContainer.innerHTML = localStorage.getItem("data");
-}
-showTask();
+});

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Pradeep</title>
+  <link rel="stylesheet" href="reg-style.css" />
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h1>Create Account</h1>
+      <p class="subtitle">Register once, then log in using your email and password.</p>
+
+      <form id="register-form" novalidate>
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required />
+          <small class="error" data-for="name"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+          <small class="error" data-for="email"></small>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" placeholder="+91 90000 00000" />
+          <small class="error" data-for="phone"></small>
+        </div>
+
+        <div class="field two-col">
+          <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Minimum 6 characters" required />
+            <small class="error" data-for="password"></small>
+          </div>
+          <div>
+            <label for="confirm">Confirm Password</label>
+            <input type="password" id="confirm" placeholder="Re-type password" required />
+            <small class="error" data-for="confirm"></small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn primary">Create Account</button>
+      </form>
+
+      <p class="switch-text">
+        Already have an account?
+        <a href="login.html">Login here</a>
+      </p>
+
+      <div id="register-success" class="banner success" hidden>
+        ✅ Registration successful! You can login now.
+      </div>
+    </div>
+  </div>
+
+  <script src="reg-script.js"></script>
+</body>
+</html>

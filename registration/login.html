@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Pradeep</title>
+  <link rel="stylesheet" href="reg-style.css" />
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <h1>Login</h1>
+      <p class="subtitle">Use the same email and password you registered with.</p>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="you@example.com" required />
+          <small class="error" data-for="login-email"></small>
+        </div>
+
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Your password" required />
+          <small class="error" data-for="login-password"></small>
+        </div>
+
+        <button type="submit" class="btn primary">Login</button>
+      </form>
+
+      <p class="switch-text">
+        New user?
+        <a href="register.html">Create an account</a>
+      </p>
+
+      <div id="login-success" class="banner success" hidden>
+        ✅ Login successful! (Demo only – no real backend)
+      </div>
+      <div id="login-error" class="banner error" hidden>
+        ❌ Invalid email or password. Please try again.
+      </div>
+    </div>
+  </div>
+
+  <script src="reg-script.js"></script>
+</body>
+</html>
